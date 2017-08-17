@@ -1,0 +1,76 @@
+/**
+ * Lab model
+ */
+namespace com.healchain.network.pharmacy
+
+import com.healchain.network.healthcareentity.HealthCareEntity
+import com.healchain.network.patient.Patient
+import com.healchain.network.base.Person
+import com.healchain.network.hospital.Hospital
+import com.healchain.network.hospital.Doctor
+import com.healchain.network.hospital.Admit
+import com.healchain.network.hospital.OpConsult
+
+
+/**
+ * A Pharmacy that does dispense medicines and health items
+ */
+participant Pharmacy identified by emailId extends HealthCareEntity {
+  o String emailId
+}
+
+/**
+ * A Prescription to be dispensed by Pharmacy after prescribed by Doctor
+*/
+asset Prescription identified by prescriptionId {
+  o String prescriptionId
+  --> Hospital hospital optional
+  --> Patient patient
+  --> Doctor doctor 
+  o Item[] items optional
+  --> Pharmacy pharmacy optional
+  o DateTime timestamp 
+  o String[] authorized optional
+}
+
+concept Item {
+  o String item
+  o String quantity
+}
+
+/**
+ * Transaction to update pharmacy dispensing a Prescription
+ */
+transaction PrescriptionDispense{
+   --> Pharmacy pharmacy 
+   --> Prescription prescription
+}
+
+event PrescriptionDispenseEvent {
+  o Pharmacy pharmacy 
+  o Prescription prescription
+}
+
+/**
+ * Transaction to create an Prescription for Admit
+ */
+transaction PrescribeMedicineAdmit {
+  o String prescriptionId
+  --> Admit admit
+}
+
+event PrescribeMedicineAdmitEvent {
+  o Admit admit
+}
+
+/**
+ * Transaction to create an Prescription for Consult
+ */
+transaction PrescribeMedicineConsult {
+  o String prescriptionId
+  --> OpConsult opConsult 
+}
+
+event PrescribeMedicineConsultEvent {
+  o OpConsult opConsult
+}

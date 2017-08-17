@@ -1,0 +1,21 @@
+namespace com.healchain.network.healthcareentity
+
+import com.healchain.network.base.Person
+import com.healchain.network.base.Address
+
+/**
+ * An abstract participant type in this business network
+ */
+abstract participant HealthCareEntity {
+  o Address address optional
+  o String name 
+}
+
+abstract participant Employee extends Person {
+  --> HealthCareEntity employer
+  o DateTime startDate optional
+  o String employmentStatus optional
+  o String department optional
+  o String jobRole optional
+}
+

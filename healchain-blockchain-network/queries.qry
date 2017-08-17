@@ -1,0 +1,23 @@
+/** Sample queries for Commodity Trading business network
+*/
+
+query selectAdmitsByPatient {
+  description: "Select all Admits for a Patient"
+  statement:
+      SELECT com.healchain.network.hospital.Admit
+            WHERE(patient == _$patient)
+}
+
+query selectConsultByPatient {
+  description: "Select all Op Consults for a Patient"
+  statement:
+      SELECT com.healchain.network.hospital.OpConsult
+            WHERE(patient == _$patient)
+}
+
+query selectHospitalByEmail {
+  description: "Select all Hospitals with Email Id"
+  statement:
+      SELECT com.healchain.network.hospital.Hospital
+            WHERE(emailId == _$email)
+}

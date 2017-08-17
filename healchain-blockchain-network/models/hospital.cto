@@ -1,0 +1,123 @@
+/**
+ * Hospital model for admit and conult
+ */
+namespace com.healchain.network.hospital
+
+import com.healchain.network.healthcareentity.HealthCareEntity
+import com.healchain.network.patient.Patient
+import com.healchain.network.base.Person
+import com.healchain.network.lab.LabTest
+import com.healchain.network.pharmacy.Prescription
+
+/**
+ * Status of an Admit
+ */
+
+enum AdmitStatus {
+  o ADMITTED
+  o IN_WARD
+  o IN_ROOM
+  o IN_ICU
+  o DISCHARGED
+}
+
+/**
+ * A Hospital that Admits Patients
+ */
+participant Hospital identified by emailId extends HealthCareEntity {
+  o String emailId
+}
+
+
+/**
+ * A Doctor that works at a Hospital 
+ */
+participant Doctor identified by emailId extends Person {
+  o String emailId
+  --> Hospital employer optional
+  o DateTime startDate optional
+  o String employmentStatus optional
+  o String department optional
+  o String jobRole optional
+}
+
+/**
+ * An Admit(patient) to be treated by hospital after admitting
+*/
+asset Admit identified by admitId {
+  o String admitId
+  o AdmitStatus admitStatus
+  --> Hospital hospital
+  --> Patient patient
+  --> Doctor[] doctors optional
+  --> LabTest[] labTests optional
+  --> Prescription[] prescriptions optional
+  o UpdateAdmitStatus[] statusUpdates optional 
+  o String[] diagnosisUpdates optional
+  o String dischargeSummary optional
+}
+
+/**
+ * Transaction to create an Admit
+ */
+transaction AdmitPatient {
+  o String admitId
+  --> Hospital hospital
+  --> Patient patient
+}
+
+event AdmitPatientEvent {
+  o String admitId
+}
+
+/**
+ * Transaction to update the status of an admit
+ */
+transaction UpdateAdmitStatus{
+  o AdmitStatus admitStatus
+  --> Admit admit
+}
+
+event UpdateAdmitStatusEvent {
+  o AdmitStatus admitStatus
+  o Admit admit
+}
+
+/**
+ * Transaction to  UpdateDiganosis of an admit
+ */
+transaction UpdateDiganosis{
+  o String diagnosis
+  --> Admit admit
+}
+
+event UpdateDiagnosisEvent {
+  o String diagnosis
+  o Admit admit
+}
+
+/**
+ * Transaction to Discharge an Admit
+ */
+transaction DischargePatient {
+  o String dischargeSummary
+  --> Admit admit
+}
+
+event DischargePatientEvent {
+  o String dischargeSummary
+  o Admit admit
+ }
+
+/**
+ * An OP Consultation of a Patient to be treated by hospital or Doctor
+*/
+asset OpConsult identified by consultId {
+  o String consultId
+  --> Hospital hospital optional
+  --> Doctor[] doctors optional
+  --> Patient patient
+  --> LabTest[] labTest optional
+  --> Prescription[] prescription optional
+  o String[] dignosisUpdates optional
+}

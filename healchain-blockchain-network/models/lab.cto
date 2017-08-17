@@ -1,0 +1,81 @@
+/**
+ * Lab model
+ */
+namespace com.healchain.network.lab
+
+import com.healchain.network.healthcareentity.HealthCareEntity
+import com.healchain.network.patient.Patient
+import com.healchain.network.base.Person
+import com.healchain.network.hospital.Hospital
+import com.healchain.network.hospital.Doctor
+import com.healchain.network.hospital.Admit
+import com.healchain.network.hospital.OpConsult
+import com.healchain.network.base.MemberTransaction
+
+/**
+ * A Lab that does tests or scans
+ */
+participant Lab identified by emailId extends HealthCareEntity {
+  o String emailId
+}
+
+/**
+ * A LabTest to be done by Lab after prescribed by Doctor
+*/
+asset LabTest identified by testId {
+  o String testId
+  --> Hospital hospital optional
+  --> Patient patient
+  --> Doctor doctor 
+  o String testReport optional
+  o DateTime timestamp 
+  o String[] authorized optional
+}
+
+
+/**
+ * Transaction to  UpdateTestReport of a LabTest
+ */
+transaction UpdateTestReport{
+  o String testReport
+  --> LabTest labTest
+}
+
+event UpdateTestReportEvent {
+  o String testReport
+  o LabTest labTest
+}
+
+/**
+ * Transaction to create an LabTest
+ */
+transaction PrescribeTestAdmit {
+  o String testId
+  --> Admit admit
+}
+
+event PrescribeTestAdmitEvent {
+  o Admit admit
+}
+
+/**
+ * Transaction to create an LabTest
+ */
+transaction PrescribeTestConsult {
+  o String testId
+  --> OpConsult opConsult 
+}
+
+event PrescribeTestConsultEvent {
+  o OpConsult opConsult
+}
+
+transaction AuthorizeLabTestAccess extends MemberTransaction {
+}
+
+transaction RevokeLabTestAccess extends MemberTransaction {
+}
+
+event WearableAccessEvent {
+    o MemberTransaction memberTransaction
+}

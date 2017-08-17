@@ -1,0 +1,57 @@
+/**
+ * Patient Model.
+ */
+namespace com.healchain.network.patient
+
+import com.healchain.network.base.Person
+import com.healchain.network.base.MemberTransaction
+
+enum BloodGroup {
+  o A_POSITIVE
+  o A_NEGATIVE
+  o B_POSITIVE
+  o B_NEGATIVE
+  o O_POSITIVE
+  o O_NEGATIVE
+  o AB_POSITIVE
+  o AB_NEGATIVE
+}
+
+asset Wearable identified by wearableId {
+  o String wearableId
+  o String name
+  --> Patient patient
+  o WearableSummary[] summaries optional
+  o String[] authorized optional
+}
+
+concept WearableSummary {
+  o String summary
+  o DateTime timestamp
+}
+
+participant Patient identified by phone extends Person {
+  o String phone
+  o BloodGroup bloodGroup
+  o String[] allergies optional
+  o Pressure[] pressureReadings optional
+  o Double weight optional // g/km
+  o Double height optional // cm
+}
+
+concept Pressure {
+  o Integer diastolicPressure 
+  o Integer systolicPressure 
+  o DateTime timestamp
+}
+
+transaction SyncWearableStats {
+  --> Wearable wearable
+  o WearableSummary newSummary
+}
+
+event SyncWearableStatsEvent {
+  --> Wearable wearable
+  o WearableSummary newSummary
+}
+
