@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "934783885590",
+    "firebase_url": "https://healchain.firebaseio.com",
+    "project_id": "healchain",
+    "storage_bucket": "healchain.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:934783885590:android:ed24572c692da063",
+        "android_client_info": {
+          "package_name": "in.healchain.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "934783885590-8qhdu82ip218qjjeodpinpkvk8n681up.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHKX-vcodVSneqi6Kax58kaXWNNUSF4DU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

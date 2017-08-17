@@ -1,0 +1,107 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/grey_100">
+
+    <TextView
+        android:id="@+id/detail"
+        style="@style/ThemeOverlay.MyTextDetail"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        tools:text="Your current phone number is +91-9447465268" />
+
+    <LinearLayout
+        android:id="@+id/default_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4.0">
+
+            <!--<Spinner-->
+                <!--android:id="@+id/country_spinner"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_height="match_parent">-->
+
+            <!--</Spinner>-->
+
+            <EditText
+                android:id="@+id/field_phone_number"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_phone_number"
+                android:inputType="phone"/>
+
+        </LinearLayout>
+
+        <Button
+            android:theme="@style/ThemeOverlay.MyDarkButton"
+            android:id="@+id/button_start_verification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/start_phone_auth"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/verify_phone_fields"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="24dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+
+        <EditText
+            android:id="@+id/field_verification_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_verification_code"
+            android:inputType="number"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3.0">
+
+            <Button
+                android:theme="@style/ThemeOverlay.MyDarkButton"
+                android:id="@+id/button_verify_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="@string/verify_phone_auth"/>
+
+            <Button
+                android:theme="@style/ThemeOverlay.MyDarkButton"
+                android:id="@+id/button_resend"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="@string/resend_phone_auth"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
+

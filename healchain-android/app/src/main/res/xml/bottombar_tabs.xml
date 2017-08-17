@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_admit_history"
+        icon="@drawable/ic_hosp"
+        title="Admit History" />
+
+    <tab
+        id="@+id/tab_consult_history"
+        icon="@drawable/ic_history"
+        title="Consult History" />
+    <tab
+        id="@+id/tab_labs"
+        icon="@drawable/tab_labs"
+        title="Lab Tests" />
+    <tab
+        id="@+id/tab_pres"
+        icon="@drawable/ic_pres"
+        title="Prescription" />
+
+    <tab
+        id="@+id/tab_wearable"
+        icon="@drawable/ic_wear"
+        title="Wearable" />
+</tabs>

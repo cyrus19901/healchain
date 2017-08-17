@@ -1,0 +1,277 @@
+<div class="modal fade" id="addAssetModal" tabindex="-1" role="dialog" aria-labelledby="addAssetModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addAssetModalLabel">Add Asset</h4>
+      </div>
+      <form [formGroup]="myForm">
+        <div class="modal-body">
+
+
+          
+            <div class="form-group text-left">
+              <label for="consultId">consultId</label>
+
+              
+                <input formControlName="consultId" type="text" class="form-control">
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="hospital">hospital</label>
+
+              
+                  <textarea formControlName="hospital" class="form-control" rows="3"></textarea>
+
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="doctors">doctors</label>
+
+              
+                  <textarea formControlName="doctors" class="form-control" rows="3"></textarea>
+
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="patient">patient</label>
+
+              
+                  <textarea formControlName="patient" class="form-control" rows="3"></textarea>
+
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="labTest">labTest</label>
+
+              
+                  <textarea formControlName="labTest" class="form-control" rows="3"></textarea>
+
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="prescription">prescription</label>
+
+              
+                  <textarea formControlName="prescription" class="form-control" rows="3"></textarea>
+
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="dignosisUpdates">dignosisUpdates</label>
+
+              
+                <input formControlName="dignosisUpdates" type="text" class="form-control">
+              
+
+            </div>
+          
+
+
+        </div>
+        <div class="modal-footer">
+          <button (click)="addAsset(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="updateAssetModal" tabindex="-1" role="dialog" aria-labelledby="updateAssetModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="updateAssetModalLabel">Update Asset</h4>
+      </div>
+      <form [formGroup]="myForm">
+        <div class="modal-body">
+
+
+          
+            <div class="form-group text-left">
+              <label for="consultId">consultId</label>
+
+              
+                <input [ngModel]="consultId"formControlName="consultId" type="text" class="form-control">
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="hospital">hospital</label>
+
+              
+                  <textarea [ngModel]="hospital" formControlName="hospital" class="form-control" rows="3"></textarea>
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="doctors">doctors</label>
+
+              
+                  <textarea [ngModel]="doctors" formControlName="doctors" class="form-control" rows="3"></textarea>
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="patient">patient</label>
+
+              
+                  <textarea [ngModel]="patient" formControlName="patient" class="form-control" rows="3"></textarea>
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="labTest">labTest</label>
+
+              
+                  <textarea [ngModel]="labTest" formControlName="labTest" class="form-control" rows="3"></textarea>
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="prescription">prescription</label>
+
+              
+                  <textarea [ngModel]="prescription" formControlName="prescription" class="form-control" rows="3"></textarea>
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="dignosisUpdates">dignosisUpdates</label>
+
+              
+                <input [ngModel]="dignosisUpdates"formControlName="dignosisUpdates" type="text" class="form-control">
+              
+
+            </div>
+          
+
+
+        </div>
+        <div class="modal-footer">
+          <button (click)="updateAsset(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="deleteAssetModal" tabindex="-1" role="dialog" aria-labelledby="deleteAssetModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="deleteAssetModalLabel">Delete Asset</h4>
+      </div>
+      <form [formGroup]="myForm" (ngSubmit)="deleteAsset()">
+        <div class="modal-body">
+          Are you sure you want to delete this asset?
+        </div>
+        <div class="modal-footer">
+          <button (click)="deleteAsset()" type="submit" class="btn btn-danger" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+	<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+		<strong>Error:</strong> {{errorMessage}}
+	</div>
+  <h1 id='assetName'>OpConsult</h1>
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAssetModal">Add Asset</button>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered table-responsive table-striped">
+        <thead class="thead">
+          <tr class="thead-cols">
+            
+                <th class="info">consultId</th>
+            
+                <th class="info">hospital</th>
+            
+                <th class="info">doctors</th>
+            
+                <th class="info">patient</th>
+            
+                <th class="info">labTest</th>
+            
+                <th class="info">prescription</th>
+            
+                <th class="info">dignosisUpdates</th>
+            
+              <th class="info">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let asset of allAssets">
+
+            
+                <td>{{asset.consultId}}</td>
+            
+                <td>{{asset.hospital|striphospital}}</td>
+            
+                <td>{{asset.doctors}}</td>
+            
+                <td>{{asset.patient|strippatient}}</td>
+            
+                <td>{{asset.labTest}}</td>
+            
+                <td>{{asset.prescription}}</td>
+            
+                <td>{{asset.dignosisUpdates}}</td>
+            
+            <td>
+              <button (click)="getForm(asset.consultId);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateAssetModal">Update Asset</button>
+
+              <button (click)="setId(asset.consultId);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAssetModal">Delete Asset</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

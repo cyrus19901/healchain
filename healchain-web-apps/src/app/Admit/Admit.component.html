@@ -1,0 +1,345 @@
+<div class="modal fade" id="addAssetModal" tabindex="-1" role="dialog" aria-labelledby="addAssetModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addAssetModalLabel">Add Asset</h4>
+      </div>
+      <form [formGroup]="myForm">
+        <div class="modal-body">
+
+
+          
+            <div class="form-group text-left">
+              <label for="admitId">admitId</label>
+
+              
+                <input formControlName="admitId" type="text" class="form-control">
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="admitStatus">admitStatus</label>
+
+              
+                  <textarea formControlName="admitStatus" class="form-control" rows="3"></textarea>
+
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="hospital">hospital</label>
+
+              
+                  <textarea formControlName="hospital" class="form-control" rows="3"></textarea>
+
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="patient">patient</label>
+
+              
+                  <textarea formControlName="patient" class="form-control" rows="3"></textarea>
+
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="doctors">doctors</label>
+
+              
+                  <textarea formControlName="doctors" class="form-control" rows="3"></textarea>
+
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="labTests">labTests</label>
+
+              
+                  <textarea formControlName="labTests" class="form-control" rows="3"></textarea>
+
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="prescriptions">prescriptions</label>
+
+              
+                  <textarea formControlName="prescriptions" class="form-control" rows="3"></textarea>
+
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="statusUpdates">statusUpdates</label>
+
+              
+                  <textarea formControlName="statusUpdates" class="form-control" rows="3"></textarea>
+
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="diagnosisUpdates">diagnosisUpdates</label>
+
+              
+                <input formControlName="diagnosisUpdates" type="text" class="form-control">
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="dischargeSummary">dischargeSummary</label>
+
+              
+                <input formControlName="dischargeSummary" type="text" class="form-control">
+              
+
+            </div>
+          
+
+
+        </div>
+        <div class="modal-footer">
+          <button (click)="addAsset(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="updateAssetModal" tabindex="-1" role="dialog" aria-labelledby="updateAssetModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="updateAssetModalLabel">Update Asset</h4>
+      </div>
+      <form [formGroup]="myForm">
+        <div class="modal-body">
+
+
+          
+            <div class="form-group text-left">
+              <label for="admitId">admitId</label>
+
+              
+                <input [ngModel]="admitId"formControlName="admitId" type="text" class="form-control">
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="admitStatus">admitStatus</label>
+
+              
+                  <textarea [ngModel]="admitStatus" formControlName="admitStatus" class="form-control" rows="3"></textarea>
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="hospital">hospital</label>
+
+              
+                  <textarea [ngModel]="hospital" formControlName="hospital" class="form-control" rows="3"></textarea>
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="patient">patient</label>
+
+              
+                  <textarea [ngModel]="patient" formControlName="patient" class="form-control" rows="3"></textarea>
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="doctors">doctors</label>
+
+              
+                  <textarea [ngModel]="doctors" formControlName="doctors" class="form-control" rows="3"></textarea>
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="labTests">labTests</label>
+
+              
+                  <textarea [ngModel]="labTests" formControlName="labTests" class="form-control" rows="3"></textarea>
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="prescriptions">prescriptions</label>
+
+              
+                  <textarea [ngModel]="prescriptions" formControlName="prescriptions" class="form-control" rows="3"></textarea>
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="statusUpdates">statusUpdates</label>
+
+              
+                  <textarea [ngModel]="statusUpdates" formControlName="statusUpdates" class="form-control" rows="3"></textarea>
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="diagnosisUpdates">diagnosisUpdates</label>
+
+              
+                <input [ngModel]="diagnosisUpdates"formControlName="diagnosisUpdates" type="text" class="form-control">
+              
+
+            </div>
+          
+            <div class="form-group text-left">
+              <label for="dischargeSummary">dischargeSummary</label>
+
+              
+                <input [ngModel]="dischargeSummary"formControlName="dischargeSummary" type="text" class="form-control">
+              
+
+            </div>
+          
+
+
+        </div>
+        <div class="modal-footer">
+          <button (click)="updateAsset(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="deleteAssetModal" tabindex="-1" role="dialog" aria-labelledby="deleteAssetModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="deleteAssetModalLabel">Delete Asset</h4>
+      </div>
+      <form [formGroup]="myForm" (ngSubmit)="deleteAsset()">
+        <div class="modal-body">
+          Are you sure you want to delete this asset?
+        </div>
+        <div class="modal-footer">
+          <button (click)="deleteAsset()" type="submit" class="btn btn-danger" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+	<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+		<strong>Error:</strong> {{errorMessage}}
+	</div>
+  <h1 id='assetName'>Admit</h1>
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAssetModal">Add Asset</button>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered table-responsive table-striped">
+        <thead class="thead">
+          <tr class="thead-cols">
+            
+                <th class="info">admitId</th>
+            
+                <th class="info">admitStatus</th>
+            
+                <th class="info">hospital</th>
+            
+                <th class="info">patient</th>
+            
+                <th class="info">doctors</th>
+            
+                <th class="info">labTests</th>
+            
+                <th class="info">prescriptions</th>
+            
+                <th class="info">statusUpdates</th>
+            
+                <th class="info">diagnosisUpdates</th>
+            
+                <th class="info">dischargeSummary</th>
+            
+              <th class="info">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let asset of allAssets">
+
+            
+                <td>{{asset.admitId}}</td>
+            
+                <td>{{asset.admitStatus}}</td>
+            
+                <td>{{asset.hospital|striphospital}}</td>
+            
+                <td>{{asset.patient|strippatient}}</td>
+            
+                <td>{{asset.doctors}}</td>
+            
+                <td>{{asset.labTests}}</td>
+            
+                <td>{{asset.prescriptions}}</td>
+            
+                <td>{{asset.statusUpdates}}</td>
+            
+                <td>{{asset.diagnosisUpdates}}</td>
+            
+                <td>{{asset.dischargeSummary}}</td>
+            
+            <td>
+              <button (click)="getForm(asset.admitId);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateAssetModal">Update Asset</button>
+
+              <button (click)="setId(asset.admitId);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAssetModal">Delete Asset</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
